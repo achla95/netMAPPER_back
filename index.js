@@ -3,7 +3,7 @@ import express from "express"
 import mongoose from "mongoose"
 import config from "./src/config.js"
 import prepareCommentRoutes from "./src/routes/prepareCommentRoutes.js"
-import preparePostRoutes from "./src/routes/preparePostRoutes.js"
+import prepareScanRoutes from "./src/routes/prepareScanRoutes.js"
 import prepareSignRoutes from "./src/routes/prepareSignRoutes.js"
 
 await mongoose.connect(config.db.uri)
@@ -31,7 +31,7 @@ app.use((req, res, next) => {
 })
 
 prepareSignRoutes(app)
-preparePostRoutes(app)
+prepareScanRoutes(app)
 prepareCommentRoutes(app)
 
 app.listen(config.port, () => console.log(`Listening on :${config.port}`))

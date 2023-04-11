@@ -16,7 +16,6 @@ const auth = (req, res, next) => {
 
   try {
     const { payload } = jsonwebtoken.verify(jwt, config.security.jwt.secret)
-
     req.ctx.session = payload
 
     next()
