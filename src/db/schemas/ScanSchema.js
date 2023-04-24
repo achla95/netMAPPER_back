@@ -3,7 +3,11 @@ import EmbeddedUserSchema from "./EmbeddedUserSchema.js"
 
 const ScanSchema = new Schema(
   {
-    content: {
+    ipAddress: {
+      type: String,
+      required: true,
+    },
+    result: {
       type: String,
       required: true,
     },
