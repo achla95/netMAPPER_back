@@ -6,7 +6,7 @@ const auth = (req, res, next) => {
     headers: { authorization },
   } = req
 
-  const jwt = authorization?.slice(7)
+  const jwt = authorization
 
   if (!jwt) {
     res.status(403).send({ error: "Forbidden" })
