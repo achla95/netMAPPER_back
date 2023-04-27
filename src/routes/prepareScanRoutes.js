@@ -6,7 +6,13 @@ import jwt from "jsonwebtoken"
 
 const nmapScan = (address, options) => {
   return new Promise((resolve, reject) => {
-    const nmap = spawn("nmap", [address, ...options])
+    const splittedOptions = []
+    for (let i = 0; i < options.length; i++) {
+      splittedOptions.push(options[i].split(" "))
+    }
+    const optionsFormated = splittedOptions.flat()
+
+    const nmap = spawn("nmap", [address, ...optionsFormated])
 
     let stdout = ""
     nmap.stdout.on("data", (data) => {
