@@ -2,7 +2,6 @@ import cors from "cors"
 import express from "express"
 import mongoose from "mongoose"
 import config from "./src/config.js"
-import prepareCommentRoutes from "./src/routes/prepareCommentRoutes.js"
 import prepareScanRoutes from "./src/routes/prepareScanRoutes.js"
 import prepareSignRoutes from "./src/routes/prepareSignRoutes.js"
 
@@ -32,6 +31,5 @@ app.use((req, res, next) => {
 
 prepareSignRoutes(app)
 prepareScanRoutes(app)
-prepareCommentRoutes(app)
 
 app.listen(config.port, () => console.log(`Listening on :${config.port}`))
